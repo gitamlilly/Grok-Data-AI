@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Collection and Analysis AI</title>
+    <title>Enhanced Data Collection and Analysis AI</title>
     <link rel="stylesheet" href="style.css">
-    <!-- ml5.js library for AI integration -->
+    <!-- ml5.js for AI -->
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Data Collection and Analysis AI</h1>
-    <p>Collect data points (two inputs and one output), train a neural network, and make predictions.</p>
-    
+    <h1>Enhanced Data Collection and Analysis AI</h1>
+    <p>Collect data, configure model, train a neural network for regression, visualize, and predict.</p>
+
+    <section>
+        <h2>Model Configuration</h2>
+        <form id="config-form">
+            <label for="epochs">Epochs:</label>
+            <input type="number" id="epochs" value="50" min="1" required>
+            <label for="learningRate">Learning Rate:</label>
+            <input type="number" id="learningRate" value="0.2" step="0.01" min="0.01" required>
+            <label for="hiddenUnits">Hidden Units:</label>
+            <input type="number" id="hiddenUnits" value="16" min="1" required>
+            <button type="submit">Apply Config</button>
+        </form>
+    </section>
+
     <section>
         <h2>Add Data Point</h2>
         <form id="data-form">
@@ -23,19 +38,41 @@
             <input type="number" id="output" required>
             <button type="submit">Add Data</button>
         </form>
+        <button id="clear-data">Clear Data</button>
     </section>
-    
+
     <section>
         <h2>Collected Data</h2>
-        <ul id="data-list"></ul>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Input 1</th>
+                    <th>Input 2</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <p id="data-stats"></p>
+        <button id="export-csv">Export CSV</button>
+        <input type="file" id="import-csv" accept=".csv">
+        <button id="import-btn">Import CSV</button>
     </section>
-    
+
+    <section>
+        <h2>Visualization</h2>
+        <canvas id="data-chart" width="400" height="200"></canvas>
+    </section>
+
     <section>
         <h2>Train Model</h2>
         <button id="train-btn">Train Neural Network</button>
         <p id="training-status"></p>
+        <button id="save-model">Save Model</button>
+        <input type="file" id="load-model-file" accept=".json,.model,.bin" multiple>
+        <button id="load-model">Load Model</button>
     </section>
-    
+
     <section>
         <h2>Predict</h2>
         <form id="predict-form">
@@ -47,7 +84,7 @@
         </form>
         <p id="prediction-result"></p>
     </section>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
