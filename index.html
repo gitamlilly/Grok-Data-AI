@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Collection and Analysis AI</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ml5.js library for AI integration -->
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+</head>
+<body>
+    <h1>Data Collection and Analysis AI</h1>
+    <p>Collect data points (two inputs and one output), train a neural network, and make predictions.</p>
+    
+    <section>
+        <h2>Add Data Point</h2>
+        <form id="data-form">
+            <label for="input1">Input 1:</label>
+            <input type="number" id="input1" required>
+            <label for="input2">Input 2:</label>
+            <input type="number" id="input2" required>
+            <label for="output">Output:</label>
+            <input type="number" id="output" required>
+            <button type="submit">Add Data</button>
+        </form>
+    </section>
+    
+    <section>
+        <h2>Collected Data</h2>
+        <ul id="data-list"></ul>
+    </section>
+    
+    <section>
+        <h2>Train Model</h2>
+        <button id="train-btn">Train Neural Network</button>
+        <p id="training-status"></p>
+    </section>
+    
+    <section>
+        <h2>Predict</h2>
+        <form id="predict-form">
+            <label for="pred-input1">Input 1:</label>
+            <input type="number" id="pred-input1" required>
+            <label for="pred-input2">Input 2:</label>
+            <input type="number" id="pred-input2" required>
+            <button type="submit">Predict</button>
+        </form>
+        <p id="prediction-result"></p>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
